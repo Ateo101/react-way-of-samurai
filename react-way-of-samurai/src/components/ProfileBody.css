@@ -22,5 +22,40 @@
 }
 
 .profile-name{
-    margin: 10px 0 0 0;
+    margin: 10px 0 10px 0;
+}
+
+.profile-about{
+    margin: 0 0 10px 0;
+}
+
+.ProfileWritePost {
+    margin-top: 10px;
+}
+
+
+.ProfilePostsList {
+    margin-top: 10px;
+    display: grid;
+    grid-template-areas:
+    "pa pu"
+    ". pt";
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 1fr 15fr;
+}
+
+.post-username{
+    grid-area: pu;
+    height: auto;
+}
+.post-text{
+    grid-area: pt;
+}
+.post-profile-avatar {
+    width: 70%;
+    grid-area: pa;
+}
+
+.ProfilePostsSection {
+    margin-top: 10px;
 }
