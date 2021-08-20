@@ -9,7 +9,7 @@ export function ProfileBody() {
             <ProfileAvatar/>
             <ProfileAbout userName={"Alex"} aboutUser={"Some info about User"}/>
             <ProfileWritePost/>
-            <ProfileMyPosts/>
+            <MyPosts/>
         </div>
     )
 }
@@ -31,7 +31,7 @@ function ProfileAbout(props: ProfileAboutPropsType) {
     return (
         <div className={"ProfileAbout"}>
             <h2 className={"profile-name"}>I`m {props.userName}</h2>
-            <h3 className={"profile-about"}>Обо мне</h3>
+            <h3 className={"profile-h3"}>Обо мне</h3>
             <div>{props.aboutUser}</div>
         </div>
     )
@@ -40,7 +40,8 @@ function ProfileAbout(props: ProfileAboutPropsType) {
 function ProfileWritePost() {
     return (
         <div className={"ProfileWritePost"}>
-            <input/> <button>Написать пост</button>
+            <input/>
+            <button>Написать пост</button>
         </div>
     )
 }
@@ -50,9 +51,9 @@ type PostsListPropsType = {
     PostText: string
 }
 
-function ProfilePostsList(props: PostsListPropsType) {
+function ProfilePost(props: PostsListPropsType) {
     return (
-        <div className={"ProfilePostsList"}>
+        <div className={"ProfilePost"}>
             <img src={avatar} alt={"profile-avatar"} className={"post-profile-avatar"}/>
             <div className={"post-username"}>{props.userName}</div>
             <div className={"post-text"}>{props.PostText}</div>
@@ -60,12 +61,14 @@ function ProfilePostsList(props: PostsListPropsType) {
     )
 }
 
-function ProfileMyPosts() {
+function MyPosts() {
     return (
-        <div className={"ProfilePostsSection"}>
-            <div>Мои посты</div>
-            <ProfilePostsList userName={"Alex"} PostText={"My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post "}/>
-            <ProfilePostsList userName={"Alex"} PostText={"My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post "}/>
+        <div className={"MyPosts"}>
+            <h3 className={"profile-h3"}>Мои посты</h3>
+            <ProfilePost userName={"Alex"}
+                              PostText={"My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post "}/>
+            <ProfilePost userName={"Alex"}
+                              PostText={"My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post "}/>
         </div>
-)
+    )
 }

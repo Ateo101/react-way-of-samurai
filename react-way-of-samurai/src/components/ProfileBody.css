@@ -16,16 +16,16 @@
     border: thick solid white;
 }
 
-.profile-banner-box{
+.profile-banner-box {
     height: 250px;
     position: relative;
 }
 
-.profile-name{
+.profile-name {
     margin: 10px 0 10px 0;
 }
 
-.profile-about{
+.profile-h3 {
     margin: 0 0 10px 0;
 }
 
@@ -34,7 +34,7 @@
 }
 
 
-.ProfilePostsList {
+.ProfilePost {
     margin-top: 10px;
     display: grid;
     grid-template-areas:
@@ -44,18 +44,20 @@
     grid-template-columns: 1fr 15fr;
 }
 
-.post-username{
+.post-username {
     grid-area: pu;
     height: auto;
 }
-.post-text{
+
+.post-text {
     grid-area: pt;
 }
+
 .post-profile-avatar {
     width: 70%;
     grid-area: pa;
 }
 
-.ProfilePostsSection {
+.MyPosts {
     margin-top: 10px;
 }
