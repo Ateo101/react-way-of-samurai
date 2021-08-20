@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../images/logo-fiesta.jpg"
+import logo from "../../images/logo-fiesta.jpg"
 import './Header.css';
 
 export function Header() {
