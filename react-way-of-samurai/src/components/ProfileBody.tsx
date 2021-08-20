@@ -1,6 +1,7 @@
 import React from "react";
 import banner from "../images/profile-banner.jpg"
 import avatar from "../images/avatar.jpg"
+import './ProfileBody.css';
 
 export function ProfileBody() {
     return (

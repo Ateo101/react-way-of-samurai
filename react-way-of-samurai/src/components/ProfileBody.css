@@ -1,0 +1,26 @@
+.ProfileBody {
+    grid-area: c;
+    background-color: azure;
+}
+
+.profile-banner {
+    width: 100%;
+}
+
+.profile-avatar {
+    width: 10%;
+    position: absolute;
+    bottom: 0;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border: thick solid white;
+}
+
+.profile-banner-box{
+    height: 250px;
+    position: relative;
+}
+
+.profile-name{
+    margin: 10px 0 0 0;
+}
