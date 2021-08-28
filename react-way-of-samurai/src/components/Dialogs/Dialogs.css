@@ -1,0 +1,31 @@
+.Dialogs{
+    display: grid;
+    grid-template-areas:
+    "dh ."
+    "di dm";
+    grid-template-rows: 1fr 10fr;
+    grid-template-columns: 6fr 10fr;
+}
+
+.dialogs-h3 {
+    margin: 0 0 10px 0;
+    grid-area: dh;
+}
+
+.dialogs-items{
+    grid-area: di;
+    margin-left: 15px;
+}
+
+.dialog a{
+    color: #7e7d7d;
+}
+
+.dialog a.active{
+    color: green;
+}
+
+.dialog-messages{
+    grid-area: dm;
+    margin-left: 15px;
+}

@@ -1,0 +1,80 @@
+.profile-avatar {
+    width: 70px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border: thick solid white;
+}
+
+.profile-banner {
+    height: 250px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-name {
+    margin: 10px 0 10px 0;
+}
+
+.profile-h3 {
+    margin: 0 0 10px 0;
+}
+
+.ProfileWritePost {
+    margin-top: 10px;
+}
+
+
+.ProfilePost {
+    margin-top: 10px;
+    display: grid;
+    grid-template-areas:
+    "pa pu"
+    ". pt"
+    ". l";
+    grid-template-rows: 30px 1fr 25px;
+    grid-template-columns: 1fr 15fr;
+}
+
+.post-username {
+    grid-area: pu;
+    align-self: center;
+}
+
+.post-text {
+    grid-area: pt;
+    margin-bottom: 5px;
+}
+
+.post-profile-avatar {
+    width: 50px;
+    margin-right: 10px;
+    grid-area: pa;
+}
+
+.likes {
+    grid-area: l;
+}
+
+.likes-count {
+    vertical-align: bottom;
+}
+
+.like-btn {
+    width: 20px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    vertical-align: middle;
+    margin: 0 3px 0 0;
+}
+
+.like-btn img {
+    vertical-align: text-top;
+}
+
+.MyPosts {
+    margin-top: 10px;
+}

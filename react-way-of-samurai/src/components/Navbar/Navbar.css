@@ -1,0 +1,17 @@
+.nav {
+    grid-area: n;
+    background-color: lightseagreen;
+}
+
+.nav-container{
+    margin: 10px 10px 0 0;
+}
+
+.item a{
+    color: white;
+    margin-left: 15px;
+}
+.item a.active {
+    color: green;
+    margin-left: 25px;
+}
