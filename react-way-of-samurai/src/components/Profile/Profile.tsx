@@ -5,10 +5,11 @@ import liked from "../../images/like-active.svg"
 import like from "../../images/like-inactive.svg"
 import './Profile.css';
 import {render} from "@testing-library/react";
+import Dialogs from "../Dialogs/Dialogs";
 
-export function Profile() {
+function Profile() {
     return (
-        <div>
+        <div className={"ProfileBody"}>
             <ProfileAvatar/>
             <ProfileAbout userName={"Alex"} aboutUser={"Some info about User"}/>
             <ProfileWritePost/>
@@ -51,7 +52,7 @@ function ProfileWritePost() {
 
 type PostsListPropsType = {
     userName: string
-    PostText: string
+    postText: string
     likesCount: number
     isLiked: boolean
 }
@@ -61,7 +62,7 @@ function ProfilePost(props: PostsListPropsType) {
         <div className={"ProfilePost"}>
             <img src={avatar} alt={"post-profile-avatar"} className={"post-profile-avatar"}/>
             <div className={"post-username"}>{props.userName}</div>
-            <div className={"post-text"}>{props.PostText}</div>
+            <div className={"post-text"}>{props.postText}</div>
             <div className={"likes"}>
                 <button className={"like-btn"}>
                     <img src={like}></img>
@@ -73,18 +74,26 @@ function ProfilePost(props: PostsListPropsType) {
 }
 
 function MyPosts() {
+
+    let posts = [
+        {userName: "Alex", postText: "Bla bla bla", likesCount: 4, isLiked: true},
+        {userName: "Alex",
+         postText: "My first post My first post My first post My first post My first post My first post My first post",
+         likesCount: 25,
+         isLiked: false},
+    ]
+
+    let postsElements = posts.map((p => <ProfilePost userName={p.userName}
+                                                     postText={p.postText}
+                                                     likesCount={p.likesCount}
+                                                     isLiked={p.isLiked}/>))
+
     return (
         <div className={"MyPosts"}>
             <h3 className={"profile-h3"}>My Posts</h3>
-            <ProfilePost userName={"Alex"}
-                         PostText={"Bla bla bla"}
-                         likesCount={4}
-                         isLiked={true}/>
-
-            <ProfilePost userName={"Alex"}
-                         PostText={"My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post My first post "}
-                         likesCount={25}
-                         isLiked={false}/>
+            {postsElements}
         </div>
     )
 }
+
+export default Profile;
