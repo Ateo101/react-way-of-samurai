@@ -1,8 +1,14 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, Route} from "react-router-dom";
 import './Navbar.css';
+import {FriendsPropsType} from "../Profile/Profile";
+import FirendsList from "./FriendsList/FriendsList";
 
-export function Navbar() {
+export type NavbarPropsType = {
+    friends: FriendsPropsType[]
+}
+
+export function Navbar(props: NavbarPropsType) {
     return (
         <nav className={"nav"}>
             <div className={"nav-container"}>
@@ -11,6 +17,7 @@ export function Navbar() {
                 <div className={"item"}><NavLink to={"/news"} activeClassName={"active"}>News</NavLink></div>
                 <div className={"item"}><NavLink to={"/music"} activeClassName={"active"}>Music</NavLink></div>
                 <div className={"item"}><NavLink to={"/settings"} activeClassName={"active"}>Settings</NavLink></div>
+                <Route path="/profile" render={()=> <FirendsList friends={props.friends}/>}/>
             </div>
         </nav>
     )

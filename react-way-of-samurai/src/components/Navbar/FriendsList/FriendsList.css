@@ -1,0 +1,16 @@
+.FriendsList{
+    margin: 10px 0 0 15px;
+}
+
+.friend-avatar{
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+}
+
+.FriendsItem{
+    display: inline-block;
+    margin-right: 15px;
+    text-align: center;
+    color: white;
+}

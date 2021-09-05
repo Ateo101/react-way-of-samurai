@@ -3,22 +3,23 @@ import './Profile.css';
 import {ProfileAvatar} from "./ProfileAvatar/ProfileAvatar";
 import {ProfileAbout} from "./ProfileAbout/ProfileAbout";
 import {ProfileWritePost} from "./MyPosts/ProfileWritePost";
-import {MyPosts} from "./MyPosts/MyPosts";
+import MyPosts from "./MyPosts/MyPosts";
 
 type UserDataPropsType = {
-    name: string
-    changeName: (e: ChangeEvent<HTMLInputElement>) => void
-    showNameInput: boolean
-    onChange: (c: boolean) => void
+    state: {posts: PostsPropsType[]}
 }
 
+export type FriendsPropsType = {id: number, name: string}
+export type PostsPropsType = {userName: string, postText: string, likesCount: number, isLiked: boolean}
+
 function Profile(props: UserDataPropsType) {
+
     return (
         <div className={"ProfileBody"}>
             <ProfileAvatar/>
-            <ProfileAbout username={props.name} changeName={props.changeName} showNameInput={props.showNameInput} onChange={props.onChange} aboutUser={`Some info about ${props.name}`}/>
+            <ProfileAbout username={'Alex'} aboutUser={'Some info about me'}/>
             <ProfileWritePost/>
-            <MyPosts username={props.name}/>
+            <MyPosts username={'Alex'} posts={props.state.posts}/>
         </div>
     )
 }

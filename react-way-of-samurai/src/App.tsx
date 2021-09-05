@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React from 'react';
 import './App.css';
 import {Header} from "./components/Header/Header";
 import {Navbar} from "./components/Navbar/Navbar";
@@ -8,31 +8,22 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import {statePropsType} from "./redux/state";
 
-function App() {
+type AppPropsType = {
+    state: statePropsType
+}
 
-    let [username, setUsername] = useState('Alex')
-    let [showNameInput, setShowNameInput] = useState(false)
-
-    let changeNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        setUsername(e.currentTarget.value)
-    }
-
+function App(props: AppPropsType) {
     return (
         <BrowserRouter>
             <div className={"app-wrapper"}>
                 <Header/>
-                <Navbar/>
+                <Navbar friends={props.state.friends}/>
                 <div className={"app-wrapper-content"}>
 
-                    {/*<Route path="/dialogs" component={Dialogs}/>
-                    <Route path="/profile" component={Profile}/>
-                    <Route path="/news" component={News}/>
-                    <Route path="/music" component={Music}/>
-                    <Route path="/settings" component={Settings}/>*/}
-
-                    <Route path="/dialogs" render={()=><Dialogs/>}/>
-                    <Route path="/profile" render={()=><Profile name={username} changeName={changeNameCallback} showNameInput={showNameInput} onChange={setShowNameInput}/>}/>
+                    <Route path="/dialogs" render={()=><Dialogs state={props.state.messagesPage}/>}/>
+                    <Route path="/profile" render={()=><Profile state={props.state.profilePage}/>}/>
                     <Route path="/news" render={()=><News/>}/>
                     <Route path="/music" render={()=><Music/>}/>
                     <Route path="/settings" render={()=><Settings/>}/>
