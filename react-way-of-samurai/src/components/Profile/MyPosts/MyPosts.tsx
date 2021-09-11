@@ -9,10 +9,11 @@ type MyPostsPropsType = {
 
 const MyPosts = (props: MyPostsPropsType) => {
 
-    let postsElements = props.posts.map((p => <ProfilePost userName={p.userName}
-                                                     postText={p.postText}
-                                                     likesCount={p.likesCount}
-                                                     isLiked={p.isLiked}/>))
+    const postsElements = props.posts.map((p => <ProfilePost id={p.id}
+                                                           userName={p.userName}
+                                                           postText={p.postText}
+                                                           likesCount={p.likesCount}
+                                                           isLiked={p.isLiked}/>))
 
     return (
         <div className={"MyPosts"}>

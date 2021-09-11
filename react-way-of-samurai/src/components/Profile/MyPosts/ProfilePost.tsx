@@ -1,15 +1,9 @@
 import avatar from "../../../images/avatar.jpg";
 import like from "../../../images/like-inactive.svg";
 import React from "react";
+import {PostsPropsType} from "../Profile";
 
-type PostsListPropsType = {
-    userName: string
-    postText: string
-    likesCount: number
-    isLiked: boolean
-}
-
-export function ProfilePost(props: PostsListPropsType) {
+export function ProfilePost(props: PostsPropsType) {
     return (
         <div className={"ProfilePost"}>
             <img src={avatar} alt={"post-profile-avatar"} className={"post-profile-avatar"}/>
