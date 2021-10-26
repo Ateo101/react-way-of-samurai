@@ -1,5 +1,14 @@
 import './index.css';
-import {rerenderEntireTree} from "./render";
-import state from "./redux/state";
+import ReactDOM from "react-dom";
+import React from "react";
+import App from "./App";
+import store from "./redux/redux-store";
+import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom";
 
-rerenderEntireTree(state);
+ReactDOM.render(
+    <BrowserRouter>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </BrowserRouter>, document.getElementById('root'));

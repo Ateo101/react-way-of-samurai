@@ -2,32 +2,51 @@ import React, {ChangeEvent} from "react";
 import './Profile.css';
 import {ProfileAvatar} from "./ProfileAvatar/ProfileAvatar";
 import {ProfileAbout} from "./ProfileAbout/ProfileAbout";
-import {ProfileWritePost} from "./MyPosts/ProfileWritePost";
-import MyPosts from "./MyPosts/MyPosts";
+import {ProfilePost} from "./ProfilePost/ProfilePost";
 
 export type UserDataPropsType = {
+    addPost: () => void
+    updateNewPostText: (body: string) => void
     profilePage: {
         posts: PostsPropsType[],
         newPostText: string
     }
-    addPost: (postMessage: string) => void
-    updateNewPostText: (text: string) => void
 }
 
 export type FriendsPropsType = {id: number, name: string}
 export type PostsPropsType = {id: number, userName: string, postText: string, likesCount: number, isLiked: boolean}
 
 function Profile(props: UserDataPropsType) {
+    const state = props.profilePage
+    const postsElements = state.posts.map((p => <ProfilePost id={p.id}
+                                                             userName={p.userName}
+                                                             postText={p.postText}
+                                                             likesCount={p.likesCount}
+                                                             isLiked={p.isLiked}/>))
+    let newPostText = state.newPostText;
+
+    const onAddPost = () => {
+        props.addPost();
+    }
+    const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        let body = e.target.value;
+        props.updateNewPostText(body);
+    }
 
     return (
         <div className={"ProfileBody"}>
             <ProfileAvatar/>
             <ProfileAbout username={'Alex'} aboutUser={'Some info about me'}/>
-            <ProfileWritePost
-                addPost={props.addPost}
-                newPostText={props.profilePage.newPostText}
-                updateNewPostText={props.updateNewPostText}/>
-            <MyPosts username={'Alex'} posts={props.profilePage.posts}/>
+            <div className={"ProfileWritePost"}>
+                <textarea value={newPostText}
+                          onChange={onPostChange}
+                          placeholder='Enter your post message'/>
+                <div><button onClick={onAddPost}>Write a post</button></div>
+            </div>
+            <div className={"MyPosts"}>
+                <h3 className={"profile-h3"}>My Posts</h3>
+                {postsElements}
+            </div>
         </div>
     )
 }
