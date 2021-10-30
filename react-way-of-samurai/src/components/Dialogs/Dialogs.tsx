@@ -15,7 +15,6 @@ export type DialogsPropsType = {
         dialogs: DialogsElementsPropsType[],
         newMessageText: string
     }
-
 }
 
 const Dialogs = (props: DialogsPropsType) => {

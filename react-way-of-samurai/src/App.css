@@ -14,3 +14,7 @@
     grid-area: mc;
     background-color: azure;
 }
+
+.selectedPage{
+    font-weight: bold;
+}

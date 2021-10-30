@@ -14,6 +14,7 @@ export function Navbar(props: NavbarPropsType) {
             <div className={"nav-container"}>
                 <div className={"item"}><NavLink to={"/profile"} activeClassName={"active"}>Profile</NavLink></div>
                 <div className={"item"}><NavLink to={"/dialogs"} activeClassName={"active"}>Messages</NavLink></div>
+                <div className={"item"}><NavLink to={"/users"} activeClassName={"active"}>Users</NavLink></div>
                 <div className={"item"}><NavLink to={"/news"} activeClassName={"active"}>News</NavLink></div>
                 <div className={"item"}><NavLink to={"/music"} activeClassName={"active"}>Music</NavLink></div>
                 <div className={"item"}><NavLink to={"/settings"} activeClassName={"active"}>Settings</NavLink></div>
